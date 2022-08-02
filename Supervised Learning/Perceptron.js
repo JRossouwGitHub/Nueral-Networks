@@ -7,7 +7,7 @@ class Perceptron{
         this.weights = _weights;
     }
 
-    guess(inputs){
+    attempt(inputs){
         let sum = 0
         for(let i = 0; i < this.weights.length; i++){
             sum += inputs[i] * this.weights[i]
@@ -26,8 +26,8 @@ class Perceptron{
     }
 
     train(inputs, target){
-        let guess = this.guess(inputs)
-        let error = target - guess
+        let attempt = this.attempt(inputs)
+        let error = target - attempt
         //Adjust weights
         for(let i = 0; i < this.weights.length; i++){
             this.weights[i] = this.weights[i] + error * inputs[i] * this.learningRate
